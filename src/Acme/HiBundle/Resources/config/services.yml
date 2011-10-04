@@ -1,0 +1,7 @@
+parameters:
+#    acme_hi.example.class: Acme\HiBundle\Example
+
+services:
+#    acme_hi.example:
+#        class: %acme_hi.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

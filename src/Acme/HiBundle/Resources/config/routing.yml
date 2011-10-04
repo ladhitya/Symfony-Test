@@ -1,0 +1,3 @@
+AcmeHiBundle_homepage:
+    pattern:  /hi/{name}
+    defaults: { _controller: AcmeHiBundle:Default:index }
