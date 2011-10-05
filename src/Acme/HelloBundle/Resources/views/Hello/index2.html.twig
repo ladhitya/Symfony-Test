@@ -1,0 +1,10 @@
+{# src/Acme/HelloBundle/Resources/views/Hello/index2.html.twig #}
+{% extends 'AcmeHelloBundle::helloBase.html.twig' %}
+
+{% block body %}
+    Warm Hello from Twig, <b>{{ name }}</b>!
+    <br/>
+    {% include "AcmeHelloBundle:Hello:include.html.twig" with {'name':name} %}
+    <br/>
+    {% render "AcmeHelloBundle:Hello:note" with {'for':'blah'} %}
+{% endblock %}

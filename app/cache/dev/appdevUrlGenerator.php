@@ -35,6 +35,7 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        '_configurator_final' => true,
        'AcmeHiBundle_homepage' => true,
        'AcmeHelloBundle_homepage' => true,
+       '_create' => true,
     );
 
     /**
@@ -165,6 +166,11 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
 
     private function getAcmeHelloBundle_homepageRouteInfo()
     {
-        return array(array (  0 => 'name',), array (  '_controller' => 'Acme\\HelloBundle\\Controller\\HelloController::indexAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'name',  ),  1 =>   array (    0 => 'text',    1 => '/hello',  ),));
+        return array(array (  0 => 'name',), array (  '_controller' => 'Acme\\HelloBundle\\Controller\\HelloController::indexAction',  'name' => 'someone',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'name',  ),  1 =>   array (    0 => 'text',    1 => '/hello',  ),));
+    }
+
+    private function get_createRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Acme\\HelloBundle\\Controller\\HelloController::createAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/create',  ),));
     }
 }

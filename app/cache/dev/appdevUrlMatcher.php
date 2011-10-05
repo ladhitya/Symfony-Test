@@ -149,8 +149,13 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // AcmeHelloBundle_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]+?)$#x', $pathinfo, $matches)) {
-            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Acme\\HelloBundle\\Controller\\HelloController::indexAction',)), array('_route' => 'AcmeHelloBundle_homepage'));
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello(?:/(?P<name>[^/]+?))?$#x', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Acme\\HelloBundle\\Controller\\HelloController::indexAction',  'name' => 'someone',)), array('_route' => 'AcmeHelloBundle_homepage'));
+        }
+
+        // _create
+        if ($pathinfo === '/create') {
+            return array (  '_controller' => 'Acme\\HelloBundle\\Controller\\HelloController::createAction',  '_route' => '_create',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
