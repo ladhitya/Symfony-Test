@@ -7,4 +7,28 @@
     {% include "AcmeHelloBundle:Hello:include.html.twig" with {'name':name} %}
     <br/>
     {% render "AcmeHelloBundle:Hello:note" with {'for':'blah'} %}
+    <br/>
+    
+    {% if products|length > 0 %}
+        <table>
+            <tr><td>Name</td><td>Keyword</td><td>Shortcode</td></tr>
+        {% for item in products %}
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.keyword}}</td>
+                <td>{{item.shortcode}}</td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        No Products for this person
+    {%endif%}
+    </table>
+{% endblock %}
+
+{% block sidebar %}
+   {#<!-- This is Nav:
+    <ul>
+        <li><a href="{{ path(AcmeHelloBundle_homepage) }}">Home</a></li>
+        <li><a href="{{ path(_create) }}">create</a></li>
+    </ul>-->#}
 {% endblock %}

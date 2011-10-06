@@ -237,7 +237,7 @@ class appDevDebugProjectContainer extends Container
         $c->setNamespace('sf2orm_default_b87750603e38f3eb4291c2734cd217c9');
 
         $d = new \Doctrine\ORM\Mapping\Driver\DriverChain();
-        $d->addDriver(new \Doctrine\ORM\Mapping\Driver\PHPDriver(array(0 => 'D:\\xampp\\htdocs\\symfony\\src\\Acme\\HelloBundle\\Resources\\config\\doctrine')), 'Acme\\HelloBundle\\Entity');
+        $d->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver(new \Symfony\Bridge\Doctrine\Annotations\IndexedReader($this->get('annotation_reader')), array(0 => 'D:\\xampp\\htdocs\\symfony\\src\\Acme\\HelloBundle\\Entity')), 'Acme\\HelloBundle\\Entity');
 
         $e = new \Doctrine\ORM\Configuration();
         $e->setEntityNamespaces(array('AcmeHelloBundle' => 'Acme\\HelloBundle\\Entity'));

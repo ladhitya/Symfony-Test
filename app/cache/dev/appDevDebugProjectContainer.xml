@@ -1624,9 +1624,14 @@
               <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
                 <call method="addDriver">
                   <argument type="service">
-                    <service class="Doctrine\ORM\Mapping\Driver\PHPDriver" public="false">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service">
+                        <service class="Symfony\Bridge\Doctrine\Annotations\IndexedReader" public="false">
+                          <argument type="service" id="annotation_reader"/>
+                        </service>
+                      </argument>
                       <argument type="collection">
-                        <argument>D:\xampp\htdocs\symfony\src\Acme\HelloBundle\Resources\config\doctrine</argument>
+                        <argument>D:\xampp\htdocs\symfony\src\Acme\HelloBundle\Entity</argument>
                       </argument>
                     </service>
                   </argument>

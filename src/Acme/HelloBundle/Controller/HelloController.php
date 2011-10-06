@@ -5,7 +5,7 @@ namespace Acme\HelloBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Acme\HelloBundle\Entity\Product;
 
-//use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 class HelloController extends Controller
 {
@@ -14,8 +14,14 @@ class HelloController extends Controller
         
         $req = $this->getRequest();
         //$name = $req->query->get('page');
+        $shortcode = $req->query->get('shortcode');
+        $products = array();
+        if(!empty($shortcode)) {
+            // basic query based on the shortcode
+            $products = $this->getDoctrine()->getRepository('AcmeHelloBundle:Product')->findByShortcode($shortcode);
+        }
         
-        return $this->render('AcmeHelloBundle:Hello:index2.html.twig', array('name' => $name));
+        return $this->render('AcmeHelloBundle:Hello:index2.html.twig', array('name' => $name, 'products' => $products));
         //return $this->render('AcmeHelloBundle:Hello:index.html.php', array('name' => $name));
         //return new Response('<html><body>Hello '.$name.'!!</body></html>');
     }
