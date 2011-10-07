@@ -18,7 +18,13 @@ class HelloController extends Controller
         $products = array();
         if(!empty($shortcode)) {
             // basic query based on the shortcode
-            $products = $this->getDoctrine()->getRepository('AcmeHelloBundle:Product')->findByShortcode($shortcode);
+            //$products = $this->getDoctrine()->getRepository('AcmeHelloBundle:Product')->findByShortcode($shortcode);
+            
+            // custom repository
+            $products = $this->getDoctrine()->getRepository('AcmeHelloBundle:Product')->findAllOrderByName();
+            
+            // custom repository with variable
+            //$products =$this->getDoctrine()->getRepository('AcmeHelloBundle:Product')->findSpecificOrderByName($shortcode);
         }
         
         return $this->render('AcmeHelloBundle:Hello:index2.html.twig', array('name' => $name, 'products' => $products));

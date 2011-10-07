@@ -43,6 +43,11 @@ class Product
      */
     private $shortcode;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="CampaignTag", inversedBy="products")
+     * @ORM\JoinColumn(name="campaignTag_id", referencedColumnName="id")
+     */
+    private $category;
 
     /**
      * Get id
@@ -112,5 +117,25 @@ class Product
     public function getShortcode()
     {
         return $this->shortcode;
+    }
+
+    /**
+     * Set category
+     *
+     * @param Acme\HelloBundle\Entity\CampaignTag $category
+     */
+    public function setCategory(\Acme\HelloBundle\Entity\CampaignTag $category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * Get category
+     *
+     * @return Acme\HelloBundle\Entity\CampaignTag 
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

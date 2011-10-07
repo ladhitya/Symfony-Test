@@ -43,6 +43,11 @@ class Product
      */
     private $shortcode;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="CampaignTag", inversedBy="products")
+     * @ORM\JoinColumn(name="campaignTag_id", referencedColumnName="id")
+     */
+    private $category;
 
     /**
      * Get id

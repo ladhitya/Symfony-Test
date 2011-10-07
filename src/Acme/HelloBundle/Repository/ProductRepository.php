@@ -12,4 +12,26 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProductRepository extends EntityRepository
 {
+    public function findAllOrderByName()
+    {
+        return $this->getEntityManager()
+            ->createQuery('
+                          SELECT p
+                          FROM AcmeHelloBundle:Product p
+                          ORDER BY p.name
+                          ')
+            ->getResult();
+    }
+    
+    public function findSpecificOrderByName($shortcode) {
+        return $this->getEntityManager()
+            ->createQuery('
+                          SELECT p
+                          FROM AcmeHelloBundle:Product p
+                          WHERE p.shortcode = :shortcode
+                          ORDER BY p.name
+                          ')
+            ->setParameter('shortcode', $shortcode)
+            ->getResult();
+    }
 }
