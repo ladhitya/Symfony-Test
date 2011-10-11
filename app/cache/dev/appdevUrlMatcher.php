@@ -158,6 +158,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Acme\\HelloBundle\\Controller\\HelloController::createAction',  '_route' => '_create',);
         }
 
+        // _add
+        if ($pathinfo === '/add') {
+            return array (  '_controller' => 'Acme\\HelloBundle\\Controller\\HelloController::addAction',  '_route' => '_add',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

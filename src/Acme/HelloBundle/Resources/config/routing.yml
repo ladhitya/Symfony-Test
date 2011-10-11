@@ -7,3 +7,7 @@ AcmeHelloBundle_homepage:
 _create:
     pattern:  /create
     defaults: { _controller:AcmeHelloBundle:Hello:create}
+    
+_add:
+    pattern: /add
+    defaults: {_controller:AcmeHelloBundle:Hello:add}

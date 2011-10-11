@@ -3,6 +3,7 @@
 namespace Acme\HelloBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Acme\HelloBundle\Entity\Product
@@ -25,12 +26,14 @@ class Product
     /**
      * @var string $name
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var string $keyword
+     *
      *
      * @ORM\Column(name="keyword", type="string", length=50)
      */
@@ -39,6 +42,7 @@ class Product
     /**
      * @var string $shortcode
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="shortcode", type="string", length=20)
      */
     private $shortcode;
@@ -47,7 +51,7 @@ class Product
      * @ORM\ManyToOne(targetEntity="CampaignTag", inversedBy="products")
      * @ORM\JoinColumn(name="campaignTag_id", referencedColumnName="id")
      */
-    private $category;
+    private $tag;
 
     /**
      * Get id
@@ -120,22 +124,22 @@ class Product
     }
 
     /**
-     * Set category
+     * Set tag
      *
-     * @param Acme\HelloBundle\Entity\CampaignTag $category
+     * @param Acme\HelloBundle\Entity\CampaignTag $tag
      */
-    public function setCategory(\Acme\HelloBundle\Entity\CampaignTag $category)
+    public function setTag(\Acme\HelloBundle\Entity\CampaignTag $tag)
     {
-        $this->category = $category;
+        $this->tag = $tag;
     }
 
     /**
-     * Get category
+     * Get tag
      *
      * @return Acme\HelloBundle\Entity\CampaignTag 
      */
-    public function getCategory()
+    public function getTag()
     {
-        return $this->category;
+        return $this->tag;
     }
 }

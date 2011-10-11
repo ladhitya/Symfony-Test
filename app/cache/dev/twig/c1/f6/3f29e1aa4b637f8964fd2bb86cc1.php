@@ -60,8 +60,8 @@ class __TwigTemplate_c1f63f29e1aa4b637f8964fd2bb86cc1 extends Twig_Template
         // line 12
         if ((twig_length_filter($this->env, $this->getContext($context, 'products')) > 0)) {
             // line 13
-            echo "        <table>
-            <tr><td>Name</td><td>Keyword</td><td>Shortcode</td></tr>
+            echo "        <table border='1'>
+            <tr><td>Name</td><td>Keyword</td><td>Shortcode</td><td>Campaign Tag</td></tr>
         ";
             // line 15
             $context['_parent'] = (array) $context;
@@ -81,28 +81,32 @@ class __TwigTemplate_c1f63f29e1aa4b637f8964fd2bb86cc1 extends Twig_Template
                 // line 19
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, 'item'), "shortcode", array(), "any", false), "html");
                 echo "</td>
+                <td>";
+                // line 20
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, 'item'), "tag", array(), "any", false), "name", array(), "any", false), "html");
+                echo "</td>
             </tr>
         ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_merge($_parent, array_intersect_key($context, $_parent));
-            // line 22
+            // line 23
             echo "    ";
         } else {
-            // line 23
+            // line 24
             echo "        No Products for this person
     ";
         }
-        // line 25
+        // line 26
         echo "    </table>
 ";
     }
 
-    // line 28
+    // line 29
     public function block_sidebar($context, array $blocks = array())
     {
-        // line 29
+        // line 30
         echo "   ";
     }
 

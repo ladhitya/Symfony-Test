@@ -34,4 +34,25 @@ class ProductRepository extends EntityRepository
             ->setParameter('shortcode', $shortcode)
             ->getResult();
     }
+    
+    public function findAllInfoSpecificProductById($id) {
+        $query = $this->getEntityManager()
+            ->createQuery('
+                          SELECT
+                            p
+                          FROM
+                            AcmeHelloBundle:Product p JOIN p.tag t
+                          WHERE
+                            p.id = :id
+                          ')
+            ->setParameter('id', $id);
+            
+        try{
+            return $query->getResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+        
+    }
+    
 }

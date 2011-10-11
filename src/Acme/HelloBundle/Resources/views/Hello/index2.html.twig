@@ -10,13 +10,14 @@
     <br/>
     
     {% if products|length > 0 %}
-        <table>
-            <tr><td>Name</td><td>Keyword</td><td>Shortcode</td></tr>
+        <table border='1'>
+            <tr><td>Name</td><td>Keyword</td><td>Shortcode</td><td>Campaign Tag</td></tr>
         {% for item in products %}
             <tr>
                 <td>{{item.name}}</td>
                 <td>{{item.keyword}}</td>
                 <td>{{item.shortcode}}</td>
+                <td>{{item.tag.name}}</td>
             </tr>
         {% endfor %}
     {% else %}

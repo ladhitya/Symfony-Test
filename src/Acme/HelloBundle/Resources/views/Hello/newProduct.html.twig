@@ -1,0 +1,28 @@
+{# src/Acme/TaskBundle/Resources/views/Default/new.html.twig #}
+{% extends 'AcmeHelloBundle::helloBase.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('_add') }}" method="post" {{ form_enctype(form) }} novalidate >
+        <div>
+            <span style="padding-right:20px;">{{ form_label(form.name) }} {{ form_errors(form.name) }}</span>
+            <span>{{ form_widget(form.name) }}</span>
+        </div>
+        <div>
+            <span style="padding-right:10px;">{{ form_label(form.shortcode) }} {{ form_errors(form.shortcode) }}</span>
+            <span>{{ form_widget(form.shortcode) }}</span>
+        </div>
+        <div>
+            <span style="padding-right:10px;">{{ form_label(form.keyword) }} {{ form_errors(form.keyword) }}</span>
+            <span>{{ form_widget(form.keyword) }}</span>
+        </div>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}
+
+{% block sidebar %}
+   {#<!-- This is Nav:
+    <ul>
+        <li><a href="{{ path(AcmeHelloBundle_homepage) }}">Home</a></li>
+        <li><a href="{{ path(_create) }}">create</a></li>
+    </ul>-->#}
+{% endblock %}
