@@ -27,9 +27,10 @@
 {% endblock %}
 
 {% block sidebar %}
-   {#<!-- This is Nav:
+    This is Nav:
     <ul>
-        <li><a href="{{ path(AcmeHelloBundle_homepage) }}">Home</a></li>
-        <li><a href="{{ path(_create) }}">create</a></li>
-    </ul>-->#}
+        <li><a href="{{ path('AcmeHelloBundle_homepage') }}">Home</a></li>
+        <li><a href="{{ path('_add') }}">Add Product Form</a></li>
+        <li><a href="{{ path('_create') }}">Create Raw Product no form</a></li>
+    </ul>
 {% endblock %}

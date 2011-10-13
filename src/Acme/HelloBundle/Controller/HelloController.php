@@ -81,11 +81,18 @@ class HelloController extends Controller
         $request = $this->getRequest();
         // submission handling
         if ($request->getMethod() == 'POST') {
-            //echo 'right here!';
+            // vlidating based on annotations
             $form->bindRequest($request);
-
+            
             if ($form->isValid()) {
-                //echo 'valid';
+                //echo 'here';
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($product);
+                $em->persist($product->getTag());
+                $em->flush();
+                
+                //echo "Submitted!!";
+                return $this->redirect($this->generateUrl('AcmeHelloBundle_homepage'));
             }
         }
         

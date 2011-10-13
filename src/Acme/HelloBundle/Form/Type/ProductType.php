@@ -12,6 +12,7 @@ class ProductType extends AbstractType
         $builder->add('name','text');
         $builder->add('shortcode', 'text');
         $builder->add('keyword', 'text');
+        $builder->add('tag', new CampaignTagType());
         
     }
     

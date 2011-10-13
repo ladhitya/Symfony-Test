@@ -3,6 +3,7 @@
 
 {% block body %}
     <form action="{{ path('_add') }}" method="post" {{ form_enctype(form) }} novalidate >
+    {{ form_errors(form) }}
         <div>
             <span style="padding-right:20px;">{{ form_label(form.name) }} {{ form_errors(form.name) }}</span>
             <span>{{ form_widget(form.name) }}</span>
@@ -15,6 +16,11 @@
             <span style="padding-right:10px;">{{ form_label(form.keyword) }} {{ form_errors(form.keyword) }}</span>
             <span>{{ form_widget(form.keyword) }}</span>
         </div>
+        <div>
+            <span style="padding-right:10px;">{{ form_label(form.tag.name) }} {{ form_errors(form.tag.name) }}</span>
+            <span>{{ form_widget(form.tag.name) }}</span>
+        </div>
+        {{ form_widget(form._token) }}
         <input type="submit" value="Submit"/>
     </form>
 {% endblock %}
